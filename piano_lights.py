@@ -30,7 +30,7 @@ class LightsFromPiano:
         self.terminate = True
 
         # initialize midi processing
-        midiin, port_name = midiutil.open_midiinput(1)
+        midiin = midiutil.open_midiinput(1)[0]
         midiin.set_callback(self)
 
     # function that gets called when midi signal is detected
