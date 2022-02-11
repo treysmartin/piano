@@ -34,8 +34,10 @@ class RainbowController:
         if deltatime < 0.02:
             print('chord')
             return
-
+       
         print(message, deltatime)
+        state = message[0]
+
         if state == RainbowController.DOWN:
             self.pixels[self.next_light % self.num_lights] = self.color_on
             self.next_light+=1
