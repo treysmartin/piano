@@ -45,7 +45,7 @@ class RainbowController:
 
     ##Funtion that makes each light a different rainbow color
     def wheel(self, pos): 
-      if pos<0 or pos > 255:
+        if pos<0 or pos > 255:
             r= g= b=0
         elif pos<85:
             r= int(pos*3)
