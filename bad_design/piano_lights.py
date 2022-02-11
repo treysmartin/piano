@@ -45,7 +45,7 @@ class LightsFromPiano:
             message, deltatime = event
             state = message[0]
             print(message, deltatime)
-            if state == LightsFromMidi.DOWN:
+            if state == LightsFromPiano.DOWN:
                 self.pixels[self.next_light % self.num_lights] = self.color_on
                 self.next_light+=1
             else:
