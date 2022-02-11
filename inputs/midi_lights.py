@@ -19,9 +19,9 @@ class LightsFromMidi:
         self.prev_light = 0
 
         # initialize the lights array, turn all lights off
-        self.pixels = neopixel.NeoPixel(board.D18, 
-                                        self.num_lights, 
-                                        brightness=1, 
+        self.pixels = neopixel.NeoPixel(board.D18,
+                                        self.num_lights,
+                                        brightness=1,
                                         pixel_order=neopixel.RGB)
         self.pixels.fill((0,0,0))
 
