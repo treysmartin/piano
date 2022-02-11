@@ -64,5 +64,3 @@ def wheel(pos):
         green = int(pos*3)
         blue = int(255-pos*3)
     return (red,green,blue)
-
-
