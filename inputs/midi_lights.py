@@ -19,7 +19,7 @@ class LightsFromMidi:
         self.prev_light = 0
 
         # initialize the lights array, turn all lights off
-        self.pixels = neopixel.NeoPixel(board.D18, numLights, brightness=1, pixel_order=pixelOrder)
+        self.pixels = neopixel.NeoPixel(board.D18, self.num_lights, brightness=1, pixel_order=pixelOrder)
         self.pixels.fill((0,0,0))
 
         # state of the midi signals
@@ -33,20 +33,19 @@ class LightsFromMidi:
     def __call__(self, event, data=None):
         self.event_q.put(event)
 
-    def run(self, lights_controller):
+    def run(self):
         self.terminate = False
         while not self.terminate:
             event = self.event_q.get()
             message, deltatime = event
-            key = message[1]
             state = message[0]
             print(message, deltatime)
             if (state == DOWN):
-               self.pixels[self.next_light % self.num_lights] = self.on
-               self.next_light+=1
+                self.pixels[self.next_light % self.num_lights] = self.on
+                self.next_light+=1
             else:
-               self.pixels[self.prev_light % self.num_lights] = self.off
-               self.prev_light+=1
+                self.pixels[self.prev_light % self.num_lights] = self.off
+                self.prev_light+=1
 
     def stop(self):
         self.terminate = True
