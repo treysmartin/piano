@@ -1,7 +1,7 @@
-import rtmidi.midiutil as midiutil
 import queue
+from rtmidi import midiutil
 
-class midi_reader:
+class MidiReader:
     def __init__(self):
         self.event_q = queue.Queue(1024)
         self.terminate = True
