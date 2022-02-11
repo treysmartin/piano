@@ -7,7 +7,7 @@ from rtmidi import midiutil
 import board
 import neopixel
 
-class LightsFromMidi:
+class LightsFromPiano:
     DOWN = 144
 
     def __init__(self, num_lights, color_on, color_off):
@@ -54,3 +54,7 @@ class LightsFromMidi:
 
     def stop(self):
         self.terminate = True
+
+if __name__=='__main__':
+    lights_controller = LightsFromPiano(50, (244,0,0),(0,0,255))
+    lights_controller.run()
