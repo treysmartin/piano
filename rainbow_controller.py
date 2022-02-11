@@ -27,7 +27,7 @@ class RainbowController:
             self.next_light = 0
 
         # pick the next color to turn on
-        self.on_color = self.wheel(self.next_light * 256 // self.num_lights )
+        self.color_on = self.wheel(self.next_light * 256 // self.num_lights )
 
         # Only turn on one light for a chord
         message, deltatime = event
